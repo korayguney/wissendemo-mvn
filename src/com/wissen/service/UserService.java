@@ -25,15 +25,16 @@ public class UserService {
 
 			// create connection
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/wissendemo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+					"jdbc:mysql://localhost:3306/wissendemo?useSSL=false",
 					"root", "1234");
 
 			// create statement
-			PreparedStatement psmt = conn.prepareStatement("INSERT INTO user(firstname,lastname) VALUES (?,?);");
+			PreparedStatement psmt = conn.prepareStatement("INSERT INTO user(id,firstname,lastname) VALUES (?,?,?);");
 
 			// set variables to query
-			psmt.setString(1, user.getFirstname());
-			psmt.setString(2, user.getLastname());
+			psmt.setInt(1, 501);
+			psmt.setString(2, user.getFirstname());
+			psmt.setString(3, user.getLastname());
 
 			// execute query
 			psmt.execute();
