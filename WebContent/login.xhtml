@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<br />
+	<div align="center">
+		<img src="img/wissen.png" alt="wissen logo" width="200" height="75" />
+	</div>
+		<br />
+	<h1 align="center">
+		Wissen Akademie Demo Course <br /> JPA-JDBC Test Page
+	</h1>
+	<br />
+	<hr />
+	<h:form>
+		<table align="center">
+			<tr>
+				<td>Firstname :</td>
+				<td><p:inputText value="#{userbean.user.firstname}"
+						required="true" requiredMessage="You cannot left empty!"
+						id="firstname" /></td>
+				<td><p:message for="firstname" /></td>
+			</tr>
+			<tr>
+				<td>Lastname :</td>
+				<td><p:password value="#{userbean.user.lastname}"
+						required="true" requiredMessage="You cannot left empty!"
+						id="lastname" /></td>
+				<td><p:message for="lastname" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><p:commandButton action="#{userbean.saveWithJDBC()}"
+						value="Save with JDBC" ajax="false" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><p:commandButton action="#{userbean.saveWithJPA}"
+						value="Save with JPA" ajax="false" /></td>
+				<td></td>
+			</tr>
+		</table>
+		<div align="center">
+			<img src="img/harry.png" alt="harry potter" width="200" height="245"></img>
+		</div>
+		<p:messages showDetail="true" autoUpdate="true" />
+	</h:form>
+
+	<br />
+
+</body>
+</html>
